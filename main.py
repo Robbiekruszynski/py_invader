@@ -1,5 +1,5 @@
 import pygame
-
+import random
 #initalize pygame
 pygame.init()
 
@@ -12,15 +12,17 @@ pygame.display.set_caption('py Invaders')
 icon = pygame.image.load('ship.png')
 pygame.display.set_icon(icon)
 
-#player start location
+#player and enemy start location
 playerImg = pygame.image.load('percy.png')
-enemyImg = pygame.image.load('google.png')
-enemyX = 370
-enemyY = 80
-enemyX_change = 0
 playerX = 370
 playerY = 480
 playerX_change = 0
+
+enemyImg = pygame.image.load('google.png')
+enemyX = random.randint(0, 800)
+enemyY = random.randint(50, 200)
+enemyX_change = 15.0
+enemyY_change = 15.0
 
 #new values drawn on the screen
 def player(x, y):
@@ -59,6 +61,15 @@ while running:
         playerX = 0
     elif playerX >= 756:
         playerX =756
+
+    #enemy movement
+    enemyX += enemyX_change
+
+    if enemyX <=0:
+        enemyX_change = 10.3
+    elif enemyX >= 756:
+        enemyX_change = -10.3
+
 
     player(playerX, playerY)
     enemy(enemyX, enemyY)
