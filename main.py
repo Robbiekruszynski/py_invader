@@ -1,16 +1,22 @@
-import pygame
 import random
 import math
+import pygame
+from pygame import mixer
 
 # from PIL import Image
 
 # initalize pygame
 pygame.init()
+cloock = pygame.time.Clock()
 
 # screen creation
 screen = pygame.display.set_mode((800, 600))
 background = pygame.image.load("clouds.png")
-# fire = pygame.imgae.load("fireball.png")
+
+#music
+mixer.music.load('game.wav')
+# -1 will play the music on a loop
+mixer.music.play(-1)
 
 # Window title
 pygame.display.set_caption('py Invaders')
@@ -45,7 +51,12 @@ fireX_change = 0
 fireY_change = 10
 fire_state = "ready"
 
-score = 0
+#score
+score_value = 0
+font = pygame.font.Font('freesansbold.ttf', 24)
+
+scoreX = 10
+scoreY = 10
 
 # new values drawn on the screen
 def player(x, y):
@@ -69,7 +80,9 @@ def isCollision(enemyX, enemyY, fireX, fireY):
     else:
         return False
 
-
+def show_score(x,y):
+    score = font.render("Score : " + str(score_value), True, (255, 255, 255) )
+    screen.blit(score, (x, y))
 # loop to keep the game running unless you click the close button => running == False
 # GameLoop, in general...
 running = True
@@ -122,8 +135,8 @@ while running:
         if collision:
             fireY = 480
             fire_state = "ready"
-            score += 1
-            print(score)
+            score_value += 1
+
             enemyX[i] = random.randint(0, 800)
             enemyY[i] = random.randint(50, 150)
 
@@ -131,8 +144,8 @@ while running:
 
     # fireball movement
     if fireY <= 0:
-        fireY = 480
-        fire_state = "ready"
+       fireY = 480
+       fire_state = "ready"
 
 
     if fire_state is "fire":
@@ -140,5 +153,5 @@ while running:
         fireY -= fireY_change
 
     player(playerX, playerY)
-
+    show_score(scoreX, scoreY)
     pygame.display.update()
