@@ -90,6 +90,11 @@ while running:
         enemyX_change = -6.3
         enemyY += enemyY_change
 
+    #fireball movement
+    if fire_state is "fire":
+        fire_ball(playerX, fireY)
+        fireY -= fireY_change
+
     player(playerX, playerY)
     enemy(enemyX, enemyY)
     pygame.display.update()
