@@ -92,7 +92,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587244503664</updated>
-      <workItem from="1587244508761" duration="17092000" />
+      <workItem from="1587244508761" duration="18798000" />
     </task>
     <servers />
   </component>
@@ -112,26 +112,26 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="423" y="253" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877/-1920.-90.1920.1057@0.23.1440.877" timestamp="1587323787479" />
-    <state width="1259" height="230" key="GridCell.Tab.0.bottom" timestamp="1587324489634">
-      <screen x="-1920" y="-90" width="1920" height="1057" />
+    <state width="1259" height="230" key="GridCell.Tab.0.bottom" timestamp="1587326716857">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1259" height="230" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-90.1920.1057@-1920.-90.1920.1057" timestamp="1587324489634" />
-    <state width="1259" height="230" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-90.1920.1057@0.23.1440.877" timestamp="1587323767727" />
-    <state width="1259" height="230" key="GridCell.Tab.0.center" timestamp="1587324489632">
-      <screen x="-1920" y="-90" width="1920" height="1057" />
+    <state width="1259" height="230" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-90.1920.1057@0.23.1440.877" timestamp="1587326716857" />
+    <state width="1259" height="230" key="GridCell.Tab.0.center" timestamp="1587326716856">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1259" height="230" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-90.1920.1057@-1920.-90.1920.1057" timestamp="1587324489632" />
-    <state width="1259" height="230" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-90.1920.1057@0.23.1440.877" timestamp="1587323767726" />
-    <state width="1259" height="230" key="GridCell.Tab.0.left" timestamp="1587324489631">
-      <screen x="-1920" y="-90" width="1920" height="1057" />
+    <state width="1259" height="230" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-90.1920.1057@0.23.1440.877" timestamp="1587326716856" />
+    <state width="1259" height="230" key="GridCell.Tab.0.left" timestamp="1587326716855">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1259" height="230" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-90.1920.1057@-1920.-90.1920.1057" timestamp="1587324489631" />
-    <state width="1259" height="230" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-90.1920.1057@0.23.1440.877" timestamp="1587323767726" />
-    <state width="1259" height="230" key="GridCell.Tab.0.right" timestamp="1587324489633">
-      <screen x="-1920" y="-90" width="1920" height="1057" />
+    <state width="1259" height="230" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-90.1920.1057@0.23.1440.877" timestamp="1587326716855" />
+    <state width="1259" height="230" key="GridCell.Tab.0.right" timestamp="1587326716856">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1259" height="230" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-90.1920.1057@-1920.-90.1920.1057" timestamp="1587324489633" />
-    <state width="1259" height="230" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-90.1920.1057@0.23.1440.877" timestamp="1587323767727" />
+    <state width="1259" height="230" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-90.1920.1057@0.23.1440.877" timestamp="1587326716856" />
     <state x="257" y="178" key="SettingsEditor" timestamp="1587259794080">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -147,6 +147,6 @@
     <state x="361" y="207" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-1920.-90.1920.1057@0.23.1440.877" timestamp="1587323452764" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/py_invader$main.coverage" NAME="main Coverage Results" MODIFIED="1587324489625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py_invader$main.coverage" NAME="main Coverage Results" MODIFIED="1587326716843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

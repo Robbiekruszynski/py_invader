@@ -58,8 +58,7 @@ font = pygame.font.Font('freesansbold.ttf', 24)
 scoreX = 10
 scoreY = 10
 
-# new values drawn on the screen
-
+over = pygame.font.Font('freesansbold.ttf', 64)
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
@@ -84,9 +83,13 @@ def isCollision(enemyX, enemyY, fireX, fireY):
         return False
 
 
-def show_score(x, y):
+def show_score(x,y):
     score = font.render("Score : " + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
+
+def game_over():
+    over_text = over.render('GAME OVER', True, (255,255,255))
+    screen.blit(over_text, (250, 250))
 
 
 # loop to keep the game running unless you click the close button => running == False
@@ -130,12 +133,21 @@ while running:
 
     # enemy movement
     for i in range(num_of_enemies):
+
+        # Game Over
+        if enemyY[i] > 440:
+            for k in range(num_of_enemies):
+                #moves all enemies out of the screen
+                enemyY[k] = 2000
+                game_over()
+                break
+
         enemyX[i] += enemyX_change[i]
         if enemyX[i] <= 0:
-            enemyX_change[i] = 5.3
+            enemyX_change[i] = 10.3
             enemyY[i] += enemyY_change[i]
         elif enemyX[i] >= 756:
-            enemyX_change[i] = -5.3
+            enemyX_change[i] = -10.3
             enemyY[i] += enemyY_change[i]
 
         # collision
@@ -146,7 +158,6 @@ while running:
             fireY = 480
             fire_state = "ready"
             score_value += 1
-
             enemyX[i] = random.randint(0, 800)
             enemyY[i] = random.randint(50, 150)
 
