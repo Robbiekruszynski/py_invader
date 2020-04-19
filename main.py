@@ -36,6 +36,7 @@ fireX_change = 0
 fireY_change = 10
 fire_state = "ready"
 
+score = 0
 
 # new values drawn on the screen
 def player(x, y):
@@ -52,7 +53,7 @@ def fire_ball(x, y):
     screen.blit(fireImg, (x + 16, y + 10))
 
 
-def collision(enemyX, enemyY, fireX, fireY):
+def isCollision(enemyX, enemyY, fireX, fireY):
     distance = math.sqrt((math.pow(enemyX - fireX, 2)) + (math.pow(enemyY - fireY, 2)))
     if distance < 27:
         return True
@@ -112,10 +113,19 @@ while running:
         fireY = 480
         fire_state = "ready"
 
-    # fireball movement
+
     if fire_state is "fire":
         fire_ball(fireX, fireY)
         fireY -= fireY_change
+
+    #collision
+    collision = isCollision(enemyX,enemyY,fireX,fireY)
+    if collision:
+        fireY = 480
+        fire_state = "ready"
+        score += 1
+        print(score)
+
 
     player(playerX, playerY)
     enemy(enemyX, enemyY)
