@@ -13,7 +13,7 @@ cloock = pygame.time.Clock()
 screen = pygame.display.set_mode((800, 600))
 background = pygame.image.load("clouds.png")
 
-#music
+# music
 mixer.music.load('game.wav')
 # -1 will play the music on a loop
 mixer.music.play(-1)
@@ -37,7 +37,7 @@ enemyX_change = []
 enemyY_change = []
 num_of_enemies = 8
 
-for i in range (num_of_enemies):
+for i in range(num_of_enemies):
     enemyImg.append(pygame.image.load('spaceShip.png'))
     enemyX.append(random.randint(0, 800))
     enemyY.append(random.randint(50, 100))
@@ -51,7 +51,7 @@ fireX_change = 0
 fireY_change = 10
 fire_state = "ready"
 
-#score
+# score
 score_value = 0
 font = pygame.font.Font('freesansbold.ttf', 24)
 
@@ -59,6 +59,8 @@ scoreX = 10
 scoreY = 10
 
 # new values drawn on the screen
+
+
 def player(x, y):
     screen.blit(playerImg, (x, y))
 
@@ -74,15 +76,19 @@ def fire_ball(x, y):
 
 
 def isCollision(enemyX, enemyY, fireX, fireY):
-    distance = math.sqrt((math.pow(enemyX - fireX, 2)) + (math.pow(enemyY - fireY, 2)))
+    distance = math.sqrt((math.pow(enemyX - fireX, 2)) +
+                         (math.pow(enemyY - fireY, 2)))
     if distance < 27:
         return True
     else:
         return False
 
-def show_score(x,y):
-    score = font.render("Score : " + str(score_value), True, (255, 255, 255) )
+
+def show_score(x, y):
+    score = font.render("Score : " + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
+
+
 # loop to keep the game running unless you click the close button => running == False
 # GameLoop, in general...
 running = True
@@ -105,6 +111,8 @@ while running:
 
             if event.key == pygame.K_SPACE:
                 if fire_state is "ready":
+                    fire_Sound = mixer.Sound('papa.wav')
+                    fire_Sound.play()
                     fireX = playerX
                     fire_ball(fireX, fireY)
 
@@ -133,6 +141,8 @@ while running:
         # collision
         collision = isCollision(enemyX[i], enemyY[i], fireX, fireY)
         if collision:
+            kill_Sound = mixer.Sound('kill.wav')
+            kill_Sound.play()
             fireY = 480
             fire_state = "ready"
             score_value += 1
@@ -144,9 +154,8 @@ while running:
 
     # fireball movement
     if fireY <= 0:
-       fireY = 480
-       fire_state = "ready"
-
+        fireY = 480
+        fire_state = "ready"
 
     if fire_state is "fire":
         fire_ball(fireX, fireY)
