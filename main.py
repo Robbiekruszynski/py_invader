@@ -23,11 +23,20 @@ playerX = 370
 playerY = 480
 playerX_change = 0
 
-enemyImg = pygame.image.load('bigGoo.png')
-enemyX = random.randint(0, 800)
-enemyY = random.randint(50, 100)
-enemyX_change = 5.0
-enemyY_change = 10.0
+
+enemyImg = []
+enemyX = []
+enemyY = []
+enemyX_change = []
+enemyY_change = []
+num_of_enemies = 8
+
+for i in range (num_of_enemies):
+    enemyImg.append(pygame.image.load('spaceShip.png'))
+    enemyX.append(random.randint(0, 800))
+    enemyY.append(random.randint(50, 100))
+    enemyX_change.append(5.0)
+    enemyY_change.append(10.0)
 
 fireImg = pygame.image.load('pepe.png')
 fireX = 0
@@ -43,8 +52,8 @@ def player(x, y):
     screen.blit(playerImg, (x, y))
 
 
-def enemy(x, y):
-    screen.blit(enemyImg, (x, y))
+def enemy(x, y, i):
+    screen.blit(enemyImg[i], (x, y))
 
 
 def fire_ball(x, y):
@@ -99,14 +108,26 @@ while running:
         playerX = 756
 
     # enemy movement
-    enemyX += enemyX_change
+    for i in range(num_of_enemies):
+        enemyX[i] += enemyX_change[i]
+        if enemyX[i] <= 0:
+            enemyX_change[i] = 5.3
+            enemyY[i] += enemyY_change[i]
+        elif enemyX[i] >= 756:
+            enemyX_change[i] = -5.3
+            enemyY[i] += enemyY_change[i]
 
-    if enemyX <= 0:
-        enemyX_change = 6.3
-        enemyY += enemyY_change
-    elif enemyX >= 756:
-        enemyX_change = -6.3
-        enemyY += enemyY_change
+        # collision
+        collision = isCollision(enemyX[i], enemyY[i], fireX, fireY)
+        if collision:
+            fireY = 480
+            fire_state = "ready"
+            score += 1
+            print(score)
+            enemyX[i] = random.randint(0, 800)
+            enemyY[i] = random.randint(50, 150)
+
+        enemy(enemyX[i], enemyY[i], i)
 
     # fireball movement
     if fireY <= 0:
@@ -118,15 +139,6 @@ while running:
         fire_ball(fireX, fireY)
         fireY -= fireY_change
 
-    #collision
-    collision = isCollision(enemyX,enemyY,fireX,fireY)
-    if collision:
-        fireY = 480
-        fire_state = "ready"
-        score += 1
-        print(score)
-
-
     player(playerX, playerY)
-    enemy(enemyX, enemyY)
+
     pygame.display.update()
