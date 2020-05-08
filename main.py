@@ -1,7 +1,6 @@
 import random
 import math
 import pygame
-from PIL import Image
 from pygame import mixer
 
 # from PIL import Image
@@ -21,11 +20,11 @@ mixer.music.play(-1)
 
 # Window title
 pygame.display.set_caption('py Invaders')
-icon = pygame.image.load('ship.png')
+icon = pygame.image.load('hero.png')
 pygame.display.set_icon(icon)
 
 # player and enemy start location
-playerImg = pygame.image.load('percy.png')
+playerImg = pygame.image.load('hero.png')
 playerX = 370
 playerY = 480
 playerX_change = 0
@@ -36,16 +35,16 @@ enemyX = []
 enemyY = []
 enemyX_change = []
 enemyY_change = []
-num_of_enemies = 8
+num_of_enemies = 6
 
 for i in range(num_of_enemies):
-    enemyImg.append(pygame.image.load('spaceShip.png'))
-    enemyX.append(random.randint(0, 800))
+    enemyImg.append(pygame.image.load('enemy.png'))
+    enemyX.append(random.randint(0, 700))
     enemyY.append(random.randint(50, 100))
-    enemyX_change.append(5.0)
+    enemyX_change.append(3.0)
     enemyY_change.append(10.0)
 
-fireImg = pygame.image.load('pepe.png')
+fireImg = pygame.image.load('blue.png')
 fireX = 0
 fireY = 480
 fireX_change = 0
@@ -147,10 +146,10 @@ while running:
 
         enemyX[i] += enemyX_change[i]
         if enemyX[i] <= 0:
-            enemyX_change[i] = 10.3
+            enemyX_change[i] = 6.3
             enemyY[i] += enemyY_change[i]
         elif enemyX[i] >= 756:
-            enemyX_change[i] = -10.3
+            enemyX_change[i] = -6.3
             enemyY[i] += enemyY_change[i]
 
         # collision
