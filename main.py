@@ -1,6 +1,7 @@
 import random
 import math
 import pygame
+from PIL import Image
 from pygame import mixer
 
 # from PIL import Image
@@ -11,10 +12,10 @@ cloock = pygame.time.Clock()
 
 # screen creation
 screen = pygame.display.set_mode((800, 600))
-background = pygame.image.load("clouds.png")
+background = pygame.image.load("space.jpeg")
 
 # music
-mixer.music.load('game.wav')
+mixer.music.load('game.aiff')
 # -1 will play the music on a loop
 mixer.music.play(-1)
 
@@ -60,6 +61,7 @@ scoreY = 10
 
 over = pygame.font.Font('freesansbold.ttf', 64)
 
+
 def player(x, y):
     screen.blit(playerImg, (x, y))
 
@@ -83,12 +85,13 @@ def isCollision(enemyX, enemyY, fireX, fireY):
         return False
 
 
-def show_score(x,y):
+def show_score(x, y):
     score = font.render("Score : " + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
 
+
 def game_over():
-    over_text = over.render('GAME OVER', True, (255,255,255))
+    over_text = over.render('GAME OVER', True, (255, 255, 255))
     screen.blit(over_text, (250, 250))
 
 
@@ -114,7 +117,7 @@ while running:
 
             if event.key == pygame.K_SPACE:
                 if fire_state is "ready":
-                    fire_Sound = mixer.Sound('papa.wav')
+                    fire_Sound = mixer.Sound('lazer.ogg')
                     fire_Sound.play()
                     fireX = playerX
                     fire_ball(fireX, fireY)
@@ -137,7 +140,7 @@ while running:
         # Game Over
         if enemyY[i] > 440:
             for k in range(num_of_enemies):
-                #moves all enemies out of the screen
+                # moves all enemies out of the screen
                 enemyY[k] = 2000
                 game_over()
                 break
@@ -153,7 +156,7 @@ while running:
         # collision
         collision = isCollision(enemyX[i], enemyY[i], fireX, fireY)
         if collision:
-            kill_Sound = mixer.Sound('kill.wav')
+            kill_Sound = mixer.Sound('dead.wav')
             kill_Sound.play()
             fireY = 480
             fire_state = "ready"
