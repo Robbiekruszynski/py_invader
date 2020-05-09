@@ -3,7 +3,6 @@ import math
 import pygame
 from pygame import mixer
 
-# from PIL import Image
 
 # initalize pygame
 pygame.init()
